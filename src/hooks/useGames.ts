@@ -5,6 +5,7 @@ import { CanceledError } from "axios"
 export type Game = {
   id: number,
   name: string,
+  background_image: string,
 }
 
 export type Games = {
