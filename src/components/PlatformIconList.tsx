@@ -11,6 +11,7 @@ type Props = {
 }
 
 const PlatformIconList = ({platforms}: Props) => {
+
   const iconsMap: { [key: string]: IconType} = {
     pc : FaWindows,
     playstation : FaPlaystation,
@@ -26,7 +27,7 @@ const PlatformIconList = ({platforms}: Props) => {
   return (
     <HStack marginY={1}>
       {platforms.map((platform) => 
-        <div>
+        <div key={platform.id}>
           {/* <Image src={FaWindows}/> */}
           <Icon as={iconsMap[platform.slug]} color='gray.500'/>
         </div>
