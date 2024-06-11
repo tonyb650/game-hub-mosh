@@ -28,7 +28,6 @@ const PlatformIconList = ({platforms}: Props) => {
     <HStack marginY={1}>
       {platforms.map((platform) => 
         <div key={platform.id}>
-          {/* <Image src={FaWindows}/> */}
           <Icon as={iconsMap[platform.slug]} color='gray.500'/>
         </div>
       )}
