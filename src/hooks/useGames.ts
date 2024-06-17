@@ -20,6 +20,6 @@ export type Game = {
   ]
 }
 
-const useGames = (gameQuery: GameQuery) => useData<Game>(`/games`, { params: { genres: gameQuery.genre?.id, platforms: gameQuery.platform?.id, ordering: gameQuery.sortOrder }}, [gameQuery])
+const useGames = (gameQuery: GameQuery) => useData<Game>(`/games`, { params: { genres: gameQuery.genre?.id, platforms: gameQuery.platform?.id, ordering: gameQuery.sortOrder, search: gameQuery.search }}, [gameQuery])
 
 export default useGames
