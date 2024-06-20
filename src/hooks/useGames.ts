@@ -13,6 +13,7 @@ export type Game = {
   background_image: string,
   parent_platforms: { platform: Platform }[],
   metacritic: number,
+  rating_top: number, // 1 | 2 | 3 | 4 | 5
   genres: [
     {
       id: number,
