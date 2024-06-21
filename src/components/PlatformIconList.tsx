@@ -28,9 +28,11 @@ const PlatformIconList = ({platforms}: Props) => {
     <HStack marginY={1}>
       {platforms.map((platform) => 
         <div key={platform.id} >
-          {/* <Tooltip label={platform.slug}> */}
-            <Icon as={iconsMap[platform.slug]} color='gray.500'/>
-          {/* </Tooltip> */}
+          <Tooltip label={platform.slug} placement='auto'>
+            <span>
+              <Icon as={iconsMap[platform.slug]} color='gray.500'/>
+            </span>
+          </Tooltip>
         </div>
       )}
     </HStack>
