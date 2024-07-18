@@ -8,14 +8,14 @@ results: T[],
 }
 
 const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
-  console.log("Calling useData w deps")
-  console.log(deps)
+  // console.log("Calling useData w deps")
+  // console.log(deps)
   const [ data, setData] =  useState<T[]>()
   const [ isLoading, setLoading] = useState(false)
   const [error, setError] = useState("")
   
   useEffect(()=> {
-    console.log("refreshing")
+    // console.log("refreshing")
     const controller = new AbortController()
     setLoading(true)
     apiClient.get<FetchResponse<T>>(endpoint, { signal:  controller.signal, ...requestConfig })
