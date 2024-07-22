@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query"
 import { GameQuery } from "../App"
-import apiClient from "../services/api-client"
-import { FetchResponse } from "../services/api-client"
+import APIClient from "../services/api-client"
 import { Platform } from "./usePlatforms"
+
+let apiClient = new APIClient<Game>(`/games`)
 
 export type Game = {
   id: number,
@@ -21,9 +22,7 @@ export type Game = {
 const useGames = (gameQuery: GameQuery) => 
   useQuery({
     queryKey: ['games', gameQuery], // <-- anytime any of these values change reactQuery will re-fetch
-    queryFn: () => 
-      apiClient
-        .get<FetchResponse<Game>>(`/games`, 
+    queryFn: () => apiClient.getAll( 
           { 
             params: { 
               genres: gameQuery.genre?.id, 
@@ -32,7 +31,7 @@ const useGames = (gameQuery: GameQuery) =>
               search: gameQuery.search 
             }
           })
-        .then(res => res.data),
+        ,
     staleTime: 5*60*60*1000, // 5m 
  })
 
