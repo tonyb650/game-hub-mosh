@@ -5,9 +5,9 @@ import GenreList from "./components/GenreList";
 import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 import PlatformPicker from "./components/PlatformPicker";
-import { Platform } from "./hooks/useGames";
 import SortPicker from "./components/SortPicker";
 import GameHeading from "./components/GameHeading";
+import { Platform } from "./hooks/usePlatforms";
 
 export interface GameQuery {
   genre: Genre | null,

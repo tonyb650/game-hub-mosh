@@ -5,7 +5,6 @@ export type FetchResponse<T> =  {
   results: T[],
   }
 
-
 const RAWG_KEY = import.meta.env.VITE_RAWG_KEY;
 
 export default axios.create({

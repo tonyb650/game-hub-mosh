@@ -3,13 +3,11 @@ import genres from "../data/genres"
 import { FetchResponse } from "../services/api-client"
 import apiClient from "../services/api-client"
 
-
 export type Genre = {
   id: number,
   name: string,
   image_background: string,
 }
-
 
 const useGenres = () => useQuery({
   queryKey: ['genres'],
