@@ -22,7 +22,7 @@ export type Game = {
 const useGames = (gameQuery: GameQuery) => 
   useInfiniteQuery({
     queryKey: ['games', gameQuery], // <-- anytime any of these values change reactQuery will re-fetch
-    queryFn: ({ pageParam = 1}) => apiClient.getAll( 
+    queryFn: ({ pageParam = 1 }) => apiClient.getAll( 
       { 
         params: { 
           genres: gameQuery.genre?.id, 
@@ -34,10 +34,10 @@ const useGames = (gameQuery: GameQuery) =>
         }
       })
     ,
-    staleTime: 5*60*60*1000, // 5m 
+    staleTime: 24*60*60*1000, // 24h 
     initialPageParam: 1,
     // lastPage: array of games
-    // allPages: 2-dimensional array of games (each element in array is an array of games)
+    // allPages: 2-dimensional array of games (each element in array is an array of games(a page))
     // getNextPageParam should return the page number for the next fetch
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined
