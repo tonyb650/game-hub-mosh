@@ -5,14 +5,8 @@ import GameCardSkeleton from "./GameCardSkeleton"
 import GameCardContainer from "./GameCardContainer"
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import { GameQuery } from "../App"
-
-interface Props {
-  gameQuery: GameQuery,
-}
-
-const GameGrid = ({gameQuery}: Props) => {
-  const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames(gameQuery)
+const GameGrid = () => {
+  const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames()
   const skeletons = new Array(12).fill(0).map((_,i) => i)
 
   if(error) return <Text>{error.message}</Text>

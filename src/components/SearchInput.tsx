@@ -1,19 +1,16 @@
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { useRef } from "react";
 import { FaSearch } from "react-icons/fa";
+import useGameQueryStore from "../store";
 
-type Props = {
-  onSelectSearch: (searchString: string) => void,
-}
-
-
-const SearchInput = ({onSelectSearch} : Props) => {
+const SearchInput = () => {
+  const setSearchText = useGameQueryStore(s => s.setSearchText) // pass selector(s) and return s.'updateFunction'. This prevents the component from rerendering because we're not retrieving the gameQuery object in our destructuring
   const searchStringRef = useRef<HTMLInputElement>(null)
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (searchStringRef.current) {
-      onSelectSearch(searchStringRef.current.value)
+      setSearchText(searchStringRef.current.value)
     } 
   }
 
